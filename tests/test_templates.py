@@ -48,11 +48,11 @@ def test_post_detail(post_id, client, posts):
 def test_post_list(client, posts):
     url = '/'
     response = try_get_url(client, url)
-    reversed_trunketed_post_list_pattern = [
+    reversed_trunketed_post_texts = [
         post['text'][:20] for post in reversed(posts)
     ]
     reversed_post_list_pattern = re.compile(
-        r'[\s\S]+?'.join(reversed_trunketed_post_list_pattern)
+        r'[\s\S]+?'.join(reversed_trunketed_post_texts)
     )
     page_content = response.content.decode('utf-8')
     assert re.search(reversed_post_list_pattern, page_content), (
