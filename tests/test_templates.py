@@ -1,3 +1,5 @@
+import re
+
 import pytest
 from pytest_django.asserts import assertTemplateUsed
 
@@ -46,13 +48,14 @@ def test_post_detail(post_id, client, posts):
 def test_post_list(client, posts):
     url = '/'
     response = try_get_url(client, url)
-    assert isinstance(response.context.get('posts'), list), (
-        f'Убедитесь, что в словарь контекста для страницы `{url}` '
-        'значение ключа `posts` - '
-        'это инвертированный список постов из задания.'
+    reversed_trunketed_post_list_pattern = [
+        post['text'][:20] for post in reversed(posts)
+    ]
+    reversed_post_list_pattern = re.compile(
+        r'[\s\S]+?'.join(reversed_trunketed_post_list_pattern)
     )
-    assert response.context['posts'] == posts[::-1], (
-        f'Убедитесь, что в словарь контекста для страницы `{url}` '
-        'значение ключа `posts` - '
-        'это инвертированный список постов из задания.'
+    page_content = response.content.decode('utf-8')
+    assert re.search(reversed_post_list_pattern, page_content), (
+        f'Убедитесь, что на странице `{url}` выводится инвертированный список '
+        'постов из задания.'
     )
