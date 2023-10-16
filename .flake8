@@ -9,9 +9,9 @@ ignore =
     D400, D401,
     N806, N818
 exclude =
-  tests/
-  migrations
-  venv
-  env
+    tests/
+    */migrations/
+    venv/
+    env/
 per-file-ignores =
   settings.py:E501
