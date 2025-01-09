@@ -4,7 +4,7 @@ from django.urls import reverse, NoReverseMatch
 
 def test_blog_urls():
     try:
-        from blog.urls import urlpatterns as solution_urlpatterns
+        from blogicum.blog import urlpatterns as solution_urlpatterns
     except Exception as e:
         raise AssertionError(
             'При импорте списка маршрутов `urlpatterns` из файла '
@@ -21,7 +21,7 @@ def test_blog_urls():
 
 def test_pages_urls():
     try:
-        from pages.urls import urlpatterns as solution_urlpatterns
+        from blogicum.pages import urlpatterns as solution_urlpatterns
     except Exception as e:
         raise AssertionError(
             'При импорте списка маршрутов `urlpatterns` из файла '
@@ -39,7 +39,7 @@ def test_pages_urls():
 
 def test_blog_appname():
     try:
-        from blog.urls import app_name as solution_appname
+        from blogicum.blog import app_name as solution_appname
     except ImportError as e:
         raise AssertionError(
             'Убедитесь, что для приложения `blog` в переменной `app_name` '
@@ -58,7 +58,7 @@ def test_blog_appname():
 
 def test_pages_appname():
     try:
-        from pages.urls import app_name as solution_appname
+        from blogicum.pages import app_name as solution_appname
     except Exception as e:
         raise AssertionError(
             'Убедитесь, что для приложения `pages` в переменной `app_name` '

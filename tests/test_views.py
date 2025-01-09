@@ -1,6 +1,6 @@
 def test_blog_posts(posts):
     try:
-        from blog.views import posts as solution_posts
+        from blogicum.blog import posts as solution_posts
     except Exception as e:
         raise AssertionError(
             'При импорте списка `posts` из файла `blog/views.py` '

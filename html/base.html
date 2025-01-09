@@ -1,0 +1,28 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blogicum{% endblock %}</title>
+    <!-- Подключаем другие статики, например, Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Здесь будет ваш навигационный блок -->
+            <a href="{% url 'blog:index' %}">Главная</a>
+            <a href="{% url 'pages:about' %}">О нас</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Blogicum</p>
+    </footer>
+</body>
+</html>
