@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пост</title>
+</head>
+<body>
+    <h1>{{ post.location }}</h1>
+    <p>{{ post.date }}</p>
+    <p>{{ post.text }}</p>
+    <a href="{% url 'blog:index' %}">Назад к списку публикаций</a>
+</body>
+</html>
