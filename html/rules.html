@@ -15,23 +15,23 @@
     <header>
       <nav class="navbar navbar-light" style="background-color: lightskyblue">
         <div class="container">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{% url 'index' %}">
             <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
             Блогикум
           </a>        
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{% url 'index' %}">
                 Лента записей
               </a>
             </li>
             <li class="nav-item">              
-              <a class="nav-link" href="about.html">
+              <a class="nav-link" href="{% url 'about' %}">
                 О проекте
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="rules.html">
+              <a class="nav-link active" href="{% url 'rules' %}">
                 Наши правила
               </a>
             </li>
