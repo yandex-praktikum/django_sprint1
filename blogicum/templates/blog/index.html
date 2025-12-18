@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Лента записей</title>
+</head>
+<body>
+  <main>
+    {% for post in posts %}
+    <article>
+      <h2>{{ post.location }}. {{ post.date }}</h2>
+      <p>{{ post.text }}</p>
+      <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+    </article>
+    {% endfor %}
+  </main>
+</body>
+</html>
