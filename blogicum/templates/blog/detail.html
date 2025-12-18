@@ -1,13 +1,21 @@
-<!DOCTYPE html>
+{# templates/blog/detail.html #}
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>{{ post.location }}. {{ post.date }}</title>
+  <title>Пост</title>
 </head>
 <body>
-  <article>
-    <h1>{{ post.location }}. {{ post.date }}</h1>
-    <div>{{ post.text }}</div>
-  </article>
+  <h1>Пост</h1>
+
+  <ul>
+    <li>Место: {{ post.location }}</li>
+    <li>Дата: {{ post.date }}</li>
+    <li>Категория: {{ post.category }}</li>
+  </ul>
+
+  <p>{{ post.text }}</p>
+
+  <footer>© Блогикум</footer>
 </body>
 </html>

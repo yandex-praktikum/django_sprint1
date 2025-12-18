@@ -1,18 +1,26 @@
-<!DOCTYPE html>
+{# templates/blog/index.html #}
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <title>Лента записей</title>
 </head>
 <body>
-  <main>
-    {% for post in posts %}
+  <h1>Лента записей</h1>
+
+  {% for post in posts %}
     <article>
-      <h2>{{ post.location }}. {{ post.date }}</h2>
-      <p>{{ post.text }}</p>
+      <ul>
+        <li>Место: {{ post.location }}</li>
+        <li>Дата: {{ post.date }}</li>
+        <li>Категория: {{ post.category }}</li>
+      </ul>
+      <p>{{ post.text|truncatechars:100 }}</p>
       <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+      <hr>
     </article>
-    {% endfor %}
-  </main>
+  {% endfor %}
+
+  <footer>© Блогикум</footer>
 </body>
 </html>
